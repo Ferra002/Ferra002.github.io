@@ -2,18 +2,21 @@ function waitSeconds(seconds) {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
 
-function spawnHeartsRandomly(amount){
-    document.addEventListener('DOMContentLoaded', () => {
+function spawnHeartsRandomly(amount) {
+    const checkExist = setInterval(() => {
         const heartsContainer = document.querySelector('.hearts');
-        for (let i = 0; i < amount; i++) {
-            let heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.top = Math.random() * 100 + 'vh';
-            heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            heartsContainer.appendChild(heart);
+        if (heartsContainer) {
+            clearInterval(checkExist);
+            for (let i = 0; i < amount; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                heartsContainer.appendChild(heart);
+            }
         }
-    });
+    }, 100);
 }
 
 function addYesButtonFunctionality(){
