@@ -26,22 +26,22 @@ function addYesButtonFunctionality(){
 }
 
 function preventNoButtonFunctionality(){
-    document.addEventListener("DOMContentLoaded", () => {
-        const noButton = document.querySelector(".btn.no");
-        const content = noButton.innerHTML;
-    
-        noButton.addEventListener("click", async () => {
-            noButton.innerHTML = "Oops! Algo salió mal :)";
-            await waitSeconds(2);
-            noButton.innerHTML = content;
-        });
+    const noButton = document.querySelector(".btn.no");
+    const content = noButton.innerHTML;
+
+    noButton.addEventListener("click", async () => {
+        noButton.innerHTML = "Oops! Algo salió mal :)";
+        await waitSeconds(2);
+        noButton.innerHTML = content;
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    main();
+});
 
 function main(){
     spawnHeartsRandomly(60);
     preventNoButtonFunctionality();
     addYesButtonFunctionality();
 }
-
-main();
