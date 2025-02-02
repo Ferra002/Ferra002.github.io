@@ -39,12 +39,13 @@ function preventNoButtonFunctionality(){
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    main();
-});
-
 function main(){
     spawnHeartsRandomly(60);
     preventNoButtonFunctionality();
     addYesButtonFunctionality();
+}
+
+window.onload = () => {
+    alert('Carga!')
+    main();
 }
