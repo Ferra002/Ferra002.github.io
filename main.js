@@ -45,7 +45,4 @@ function main(){
     addYesButtonFunctionality();
 }
 
-window.onload = () => {
-    alert('Carga!')
-    main();
-}
+main();
