@@ -30,9 +30,9 @@ function preventNoButtonFunctionality(){
         const noButton = document.querySelector(".btn.no");
         const content = noButton.innerHTML;
     
-        noButton.addEventListener("mouseup", async () => {
+        noButton.addEventListener("click", async () => {
             noButton.innerHTML = "Oops! Algo salió mal :)";
-            await waitSeconds();
+            await waitSeconds(2);
             noButton.innerHTML = content;
         });
     });
